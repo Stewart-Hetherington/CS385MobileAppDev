@@ -15,11 +15,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
+	username: string;
+	password:string;
+	repassword:string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
+  register() {
+  	//Check that username is at least 6 characters long. Alert message if not.
+  	if(this.username.length<6) {
+  		alert("Username must be at least 6 characters long");
+  	}
+  	//Check that password is at least 6 characters long. Alert message if not.
+  	if(this.password.length<6) {
+  		alert("Password must be at least 6 characters long");
+  	}
+  	//Check that both passwords match. Alert message if not.
+  	if(this.password !== this.repassword) {
+  		alert("Passwords do not match!");
+  	}
+  }
 }
